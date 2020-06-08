@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Form = (props) => {
+const TodoForm = (props) => {
   return (
     <form>
       <input 
-      id='newtask'
+      id='task'
       onChange={props.onInputChange}
       name='task'
       type='text'
@@ -24,4 +24,4 @@ const Form = (props) => {
   );
 };
 
-export default Form;
+export default TodoForm;
