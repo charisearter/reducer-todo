@@ -1,0 +1,65 @@
+div {
+  font-size: 62.5%;
+}
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  margin: 1% auto;
+  padding: 0;
+  
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin: 0 auto;
+}
+
+.list {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: #2c5d63;
+  border-radius: 5px;
+  width: 80%;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.item {
+  color: #f5f5f5;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+input {
+  align-self: center;
+  border-radius: 5px;
+  border: 1px solid #a9c52f;
+  width: 99%;
+  align-self: center;
+  margin: 2% auto;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1% auto;
+  
+}
+
+button {
+  border: 1px ridge #283739;
+  border-radius: 3px;
+}
+
+.itemCompleted {
+  text-decoration: line-through;
+  color: red;
+}
