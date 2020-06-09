@@ -1,5 +1,6 @@
 import React, { useReducer, useState } from 'react';
 import { todoReducer, initialState } from '../reducer/reducer';
+import '../components/Todo.css'
 
 const TodoForm = () => {
 
@@ -21,7 +22,9 @@ const TodoForm = () => {
       paceholder='Add a task to do'
       />
      <p>
-       <button id='submit' onClick={() => dispatch({ type: 'SUBMIT', payload: task })}>
+       <button id='submit' 
+       onClick={() => dispatch({ type: 'SUBMIT', payload: task })}
+       >
          Add a Task
        </button>
       </p> 
@@ -32,10 +35,12 @@ const TodoForm = () => {
      </p>
      <h2> Tasks to do: </h2>
      {/* map over state to display list */}
-     <div> 
+     <div className='list'> 
        {state.map( that => {
          return (
-           <div key={that.id}  onClick={ () => dispatch({ type: 'COMPLETE', payload: that.id })}>
+           <div key={that.id}  
+           className={that.completed ? 'itemCompleted' : 'item'}
+           onClick={ () => dispatch({ type: 'COMPLETE', payload: that.id })}>
 
             <p> {that.task } </p>
            </div>
