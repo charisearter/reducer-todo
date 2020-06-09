@@ -35,7 +35,6 @@ export const todoReducer = (state, action) => {
         }
        ]//end case SUBMIT
     case 'COMPLETE': //toggle complete or not
-      
         let complete = state.map(e => {
           if (e.id === action.payload){
             return { 
@@ -47,13 +46,6 @@ export const todoReducer = (state, action) => {
           }
         })
         return complete
-        // state.map( item => {
-        //   if(item.id === action.payload){
-        //     return {...item, completed: action.payload
-        //     };
-        //   } 
-        //   return item;
-       //end case COMPLETE
     case 'CLEAR': //clear completed items
     
      let clearOut = state.filter(e => {

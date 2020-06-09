@@ -1,27 +1,52 @@
-import React from 'react';
+import React, { useReducer, useState } from 'react';
+import { todoReducer, initialState } from '../reducer/reducer';
 
-const TodoForm = (props) => {
+const TodoForm = () => {
+
+  const [ task, setTask ] = useState('');
+  const [ state, dispatch]  = useReducer(todoReducer, initialState);
+  
+  const onInputChange = e => setTask(e.target.value);
+
+  // const onComplete = e => {
+  //   dispatch ({ type: 'COMPLETE', payload: state.id })
+  // };
   return (
-    <form>
+    <div className='container'>
       <input 
       id='task'
-      onChange={props.onInputChange}
+      onChange={onInputChange}
       name='task'
       type='text'
       paceholder='Add a task to do'
       />
      <p>
-       <button id='submit' onClick={props.onSubmit}>
+       <button id='submit' onClick={() => dispatch({ type: 'SUBMIT', payload: task })}>
          Add a Task
        </button>
       </p> 
      <p>
-       <button id='clear' onClick={props.onClear}>
+       <button id='clear' onClick={() => dispatch({  type: 'CLEAR', payload: task })}>
          Clear Completed Tasks
        </button>
      </p>
-    </form>
-  );
+     <h2> Tasks to do: </h2>
+     {/* map over state to display list */}
+     <div> 
+       {state.map( that => {
+         return (
+           <div key={that.id}  onClick={ () => dispatch({ type: 'COMPLETE', payload: that.id })}>
+
+            <p> {that.task } </p>
+           </div>
+         )
+       })}
+       
+
+     </div>
+     
+   </div>
+  )
 };
 
 export default TodoForm;
