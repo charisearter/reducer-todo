@@ -29,9 +29,9 @@ export const todoReducer = (state, action) => {
       return[
         ...state,
         {
-          task: action.payload,
+          task: action.payload, //whatever the user typed
           id: Date.now(),
-          completed: false,
+          completed: false, //false is not complete
         }
        ]//end case SUBMIT
     case 'COMPLETE': //toggle complete or not
@@ -39,7 +39,7 @@ export const todoReducer = (state, action) => {
           if (e.id === action.payload){
             return { 
               ...e,
-              completed: !e.completed 
+              completed: !e.completed  //changes completed to opposite of what it says
             }
           } else {
             return e;
@@ -50,9 +50,9 @@ export const todoReducer = (state, action) => {
     
      let clearOut = state.filter(e => {
         if (e.completed === true){
-          return !e.completed;
+          return !e.completed; //return the ones that are false (not complete)
         } else {
-          return e
+          return e 
         }
         })
         return clearOut
